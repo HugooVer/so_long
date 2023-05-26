@@ -6,6 +6,8 @@ CFLAGS += -Wextra
 CFLAGS += -Werror
 
 SRCS += main.c
+SRCS += data_set.c
+SRCS += map_check.c
 
 SRCS_PATH = srcs/
 
