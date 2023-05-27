@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/26 19:31:12 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/27 13:53:15 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,20 @@ struct s_arg
 	char	**v;
 };
 
-void	arg_to_t_arg(int argc, char **argv, t_arg *arg);
+typedef struct s_data	t_data;
+
+struct s_data
+{
+	int		height;
+	int		width;
+	char	*map_name;
+	char	**map;
+
+};
+
+void	data_init(int argc, char **argv, t_arg *a, t_data *d);
+void	map(t_arg *a, t_data *d);
+
 int		is_ber_extention(t_arg *a);
 
 #endif
