@@ -4,10 +4,13 @@ CC = cc
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+CFLAGS += -g3
+
 
 SRCS += main.c
 SRCS += data_set.c
 SRCS += map_check.c
+SRCS += error_management.c
 
 SRCS_PATH = srcs/
 
