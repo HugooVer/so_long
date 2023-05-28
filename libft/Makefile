@@ -5,6 +5,7 @@ CC = cc
 CFLAGS += -Wall
 CFLAGS += -Wextra
 CFLAGS += -Werror
+CFLAGS += -g3
 
 AR = ar rc
 
