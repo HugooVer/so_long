@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/28 19:06:23 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/28 19:13:37 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ struct s_data
 };
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);
+
+void	is_ber_extention(t_arg *a, t_data *d);
 void	map_count_lines(t_data *d);
 void	map_conversion(t_data *d);
-
-int		is_ber_extention(t_arg *a, t_data *d);
+void	map_check(t_arg *a, t_data *d);
 
 void	error_free(t_data *d);
 void	error_no_free(void);
