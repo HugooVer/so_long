@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/28 19:13:37 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/29 11:24:25 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,9 @@ typedef struct s_data	t_data;
 
 struct s_data
 {
-	int		height;
 	int		width;
+	int		height;
+	int		colectible_nb;
 	int		map_fd;
 	char	*map_name;
 	char	**map;
