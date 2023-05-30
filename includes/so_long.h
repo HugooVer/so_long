@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/29 11:24:25 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:42:40 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,6 @@ void	map_check(t_arg *a, t_data *d);
 
 void	error_free(t_data *d);
 void	error_no_free(void);
+void	ft_freestrs(char **ret);
 
 #endif

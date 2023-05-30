@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/29 13:24:10 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/05/30 10:49:29 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	map_conversion(t_data *d)
 	char	*line;
 
 	d->map_fd = open(d->map_name, O_RDONLY);
+	if (d->map_fd == -1)
+		error_no_free();
 	d->map = ft_calloc(d->height + 1, sizeof(char *));
 	if (d->map == NULL)
 		error_free(d);
@@ -91,7 +93,7 @@ void	map_is_rectangular(t_data *d)
 			error_free(d);
 		++idx;
 	}
-	d->width = ft_strlen(d->map[idx - 1] - 1);
+	d->width = ft_strlen(d->map[idx - 1]) - 1;
 }
 
 void	map_is_closed(t_data *d)
