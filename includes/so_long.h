@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/30 10:42:40 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/01 11:15:01 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,15 @@ struct s_data
 	int		width;
 	int		height;
 	int		colectible_nb;
+	int		player_pos[2];
 	int		map_fd;
 	char	*map_name;
 	char	**map;
-
+	char	**map_cpy;
 };
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);
+void	ft_strscpy(t_data *d);
 
 void	is_ber_extention(t_arg *a, t_data *d);
 void	map_count_lines(t_data *d);

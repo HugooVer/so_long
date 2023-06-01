@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:36:36 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/30 10:42:40 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:25:11 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,15 @@ void	ft_freestrs(char **ret)
 {
 	size_t	i;
 
-	i = 0;
-	while (ret[i] != NULL)
+	if (ret != NULL)
 	{
+		i = 0;
+		while (ret[i] != NULL)
+		{
+			free(ret[i]);
+			++i;
+		}
 		free(ret[i]);
-		++i;
 	}
 	free(ret);
 }
@@ -28,9 +32,9 @@ void	ft_freestrs(char **ret)
 void	error_free(t_data *d)
 {
 	write(2, "Error\n", 6);
-	free(d->map);
 	free(d->map_name);
 	ft_freestrs(d->map);
+	ft_freestrs(d->map_cpy);
 	exit(EXIT_FAILURE);
 }
 

@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:20:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/05/30 10:49:18 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/01 13:16:42 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	map_check(&a, &d);
 	free(d.map_name);
 	ft_freestrs(d.map);
+	ft_freestrs(d.map_cpy);
 	exit(EXIT_SUCCESS);
 }
