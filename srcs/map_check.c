@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/01 13:37:02 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/01 14:59:03 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,12 +159,10 @@ int	backtrack(int x, int y, char **tab, char looking)
 	if (tab[x][y] == looking)
 		return (tab[x][y] = '7', 1);
 	if (tab[x][y] == '7')
-		return (tab[x][y] = '7', 0);
+		return (0);
 	if (tab[x][y] == '1')
 		return (0);
-	// printf("avant	(x = %i, y = %i) == %c\n", x, y, tab[x][y]);
 	tab[x][y] = '7';
-	// printf("apres	(x = %i, y = %i) == %c\n\n", x, y, tab[x][y]);
 	return (backtrack(x + 1, y, tab, looking)
 		+ backtrack(x - 1, y, tab, looking)
 		+ backtrack(x, y + 1, tab, looking)
