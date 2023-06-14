@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/02 12:31:14 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:26:37 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,14 +103,14 @@ void	map_is_closed(t_data *d)
 	idx = 0;
 	while (d->map[0][idx] != '\0')
 	{
-		if (d->map[0][idx] != '1' || d->map[d->height - 1][idx] != '1')
+		if (d->map[0][idx] != WALL || d->map[d->height - 1][idx] != WALL)
 			error_free(d);
 		++idx;
 	}
 	idx = 0;
 	while (d->map[idx] != NULL)
 	{
-		if (d->map[idx][0] != '1' || d->map[idx][d->width] != '1')
+		if (d->map[idx][0] != WALL || d->map[idx][d->width] != WALL)
 			error_free(d);
 		++idx;
 	}
@@ -118,11 +118,11 @@ void	map_is_closed(t_data *d)
 
 void	ellements_count(t_data *d, int *e, int *p, int *i)
 {
-	if (d->map[i[0]][i[1]] == 'C')
+	if (d->map[i[0]][i[1]] == COLLECTIBLE)
 		++d->colectible_nb;
-	if (d->map[i[0]][i[1]] == 'E')
+	if (d->map[i[0]][i[1]] == EXIT)
 		++*e;
-	if (d->map[i[0]][i[1]] == 'P')
+	if (d->map[i[0]][i[1]] == PLAYER)
 		++*p;
 }
 
@@ -140,9 +140,9 @@ void	map_well_filled(t_data *d)
 	{
 		while (d->map[i[0]][i[1]] != '\0')
 		{
-			if (d->map[i[0]][i[1]] != '1' && d->map[i[0]][i[1]] != '0' &&
-				d->map[i[0]][i[1]] != 'P' && d->map[i[0]][i[1]] != 'E' &&
-					d->map[i[0]][i[1]] != 'C')
+			if (d->map[i[0]][i[1]] != WALL && d->map[i[0]][i[1]] != FLOOR &&
+				d->map[i[0]][i[1]] != PLAYER && d->map[i[0]][i[1]] != EXIT &&
+					d->map[i[0]][i[1]] != COLLECTIBLE)
 				error_free(d);
 			ellements_count(d, &e, &p, i);
 			++i[1];
@@ -157,10 +157,10 @@ void	map_well_filled(t_data *d)
 int	backtrack(int x, int y, char **tab, char looking)
 {
 	if (tab[x][y] == looking)
-		return (tab[x][y] = '7', 1);
-	if (tab[x][y] == '7' || tab[x][y] == '1')
+		return (tab[x][y] = FOOT_PRINT, 1);
+	if (tab[x][y] == FOOT_PRINT || tab[x][y] == WALL)
 		return (0);
-	tab[x][y] = '7';
+	tab[x][y] = FOOT_PRINT;
 	return (backtrack(x + 1, y, tab, looking)
 		+ backtrack(x - 1, y, tab, looking)
 		+ backtrack(x, y + 1, tab, looking)
@@ -173,7 +173,7 @@ void	look_for_player(t_data *d)
 	{
 		while (d->map[d->player_pos[0]][d->player_pos[1]] != '\0')
 		{
-			if (d->map[d->player_pos[0]][d->player_pos[1]] == 'P')
+			if (d->map[d->player_pos[0]][d->player_pos[1]] == PLAYER)
 				return ;
 			++d->player_pos[1];
 		}
@@ -194,13 +194,15 @@ void	map_check(t_arg *a, t_data *d)
 		map_well_filled(d);
 		ft_strscpy(d);
 		look_for_player(d);
-		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy, 'E') == 1)
+		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
+				EXIT) == 1)
 			printf("Exit ok\n");
 		else
 			error_free(d);
 		ft_freestrs(d->map_cpy);
 		ft_strscpy(d);
-		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy, 'C')
+		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
+				COLLECTIBLE)
 			== d->colectible_nb)
 			printf("Colectible ok\n");
 		else

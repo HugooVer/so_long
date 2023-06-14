@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/01 11:15:01 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/14 14:26:26 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,13 @@ struct s_data
 	char	**map;
 	char	**map_cpy;
 };
+
+# define WALL '1'
+# define FLOOR '0'
+# define PLAYER 'P'
+# define COLLECTIBLE 'C'
+# define EXIT 'E'
+# define FOOT_PRINT '7'
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);
 void	ft_strscpy(t_data *d);
