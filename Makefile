@@ -20,6 +20,7 @@ MLX_PATH = minilibx-linux/
 MINILIBX += ${MLX_PATH}/libmlx_Linux.a
 MINILIBX += ${MLX_PATH}/libmlx.a
 MINILIBX_TAR += minilibx-linux.tgz
+MINILIBX_DIR += /minilibx-linux
 MINILIBX_LINK += https://cdn.intra.42.fr/document/document/15086/${MINILIBX_TAR}
 
 INCLUDE = includes/
@@ -45,9 +46,19 @@ ${NAME}:  ${LIBFT} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${INCLUDE} ${LIB_INCUDE} ${LIBFT}
 
 ${MINILIBX_TAR}:
-	wget ${MINILIBX_LINK}
-	tar -zxvf ${MINILIBX_TAR}
-#	${RM} ${MINILIBX_TAR}
+#	ifeq ($(wildcard ),true)
+#		wget ${MINILIBX_LINK}
+#		tar -zxvf ${MINILIBX_TAR}
+#		${RM} ${MINILIBX_TAR}
+#	else
+#		@echo "File exists"
+#	endif
+
+	ifeq $(wildcard ~/Document/. )
+			@echo "File do not exists"
+	else
+			@echo "File exists"
+	endif
 
 ${MINILIBX}: ${MINILIBX_TAR}
 	${MAKE} -sC ${MLX_PATH}
