@@ -20,7 +20,6 @@ MLX_PATH = minilibx-linux/
 MINILIBX += ${MLX_PATH}/libmlx_Linux.a
 MINILIBX += ${MLX_PATH}/libmlx.a
 MINILIBX_TAR += minilibx-linux.tgz
-MINILIBX_DIR += /minilibx-linux
 MINILIBX_LINK += https://cdn.intra.42.fr/document/document/15086/${MINILIBX_TAR}
 
 INCLUDE = includes/
@@ -46,22 +45,16 @@ ${NAME}:  ${LIBFT} ${OBJS}
 	${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${INCLUDE} ${LIB_INCUDE} ${LIBFT}
 
 ${MINILIBX_TAR}:
-#	ifeq ($(wildcard ),true)
-#		wget ${MINILIBX_LINK}
-#		tar -zxvf ${MINILIBX_TAR}
-#		${RM} ${MINILIBX_TAR}
-#	else
-#		@echo "File exists"
-#	endif
-
-	ifeq $(wildcard ~/Document/. )
-			@echo "File do not exists"
-	else
-			@echo "File exists"
-	endif
+ifeq ($(wildcard ${MLX_PATH}),)
+	wget ${MINILIBX_LINK}
+	tar -zxvf ${MINILIBX_TAR}
+	${RM} ${MINILIBX_TAR}
+endif
 
 ${MINILIBX}: ${MINILIBX_TAR}
+ifeq ($(wildcard ${MINILIBX}),)
 	${MAKE} -sC ${MLX_PATH}
+endif
 
 ${LIBFT}:
 	${MAKE} -C ${LIBFT_PATH}
@@ -83,5 +76,8 @@ fclean: clean
 re: fclean
 	${MAKE}
 	${MAKE} -C ${MLX_PATH} re
+
+fcleanMLX: fclean
+	${RM} -r ${MLX_PATH}
 
 .PHONY: all clean fclean re
