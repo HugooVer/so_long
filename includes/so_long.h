@@ -6,26 +6,28 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/14 14:26:26 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/15 15:14:12 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <mlx.h>
+
 # include "libft.h"
 # include "get_next_line.h"
 # include "ft_printf.h"
 
-typedef struct s_arg	t_arg;
+typedef struct s_arg		t_arg;
+typedef struct s_data		t_data;
+typedef struct s_datamlx	t_datamlx;
 
 struct s_arg
 {
 	int		c;
 	char	**v;
 };
-
-typedef struct s_data	t_data;
 
 struct s_data
 {
@@ -37,6 +39,14 @@ struct s_data
 	char	*map_name;
 	char	**map;
 	char	**map_cpy;
+};
+
+struct	s_datamlx {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
 };
 
 # define WALL '1'

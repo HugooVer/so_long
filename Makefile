@@ -42,7 +42,7 @@ OBJS = ${patsubst %.c, ${OBJS_PATH}/%.o, ${SRCS}}
 all: ${MINILIBX} ${NAME}
 
 ${NAME}:  ${LIBFT} ${OBJS}
-	${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${INCLUDE} ${LIB_INCUDE} ${LIBFT}
+	${CC} ${CFLAGS} ${OBJS} -o ${NAME} -I ${INCLUDE} ${LIB_INCUDE} ${LIBFT} ${LINKS}
 
 ${MINILIBX_TAR}:
 ifeq ($(wildcard ${MLX_PATH}),)
