@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:20:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/20 16:46:57 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:15:12 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	key_press(int keycode, t_vars *vars)
 	if (keycode == ESC)
 	{
 		mlx_destroy_window(vars->mlx, vars->win);
+		mlx_destroy_display(vars->mlx);
 		exit (0);
 	}
 	return (0);
@@ -44,9 +45,10 @@ int	key_release(int keycode, t_vars *vars)
 	return (0);
 }
 
-int close_window(t_vars *vars)
+int	close_window(t_vars *vars)
 {
 	mlx_destroy_window(vars->mlx, vars->win);
+	mlx_destroy_display(vars->mlx);
 	exit(0);
 }
 
@@ -57,7 +59,7 @@ int	main(int argc, char **argv)
 	t_vars		vars;
 
 	vars.mlx = mlx_init();
-	vars.win = mlx_new_window(vars.mlx, 800, 600, "Hello world!");
+	vars.win = mlx_new_window(vars.mlx, 800, 600, "so_long");
 	mlx_hook(vars.win, 2, 1L << 0, key_press, &vars);
 	mlx_hook(vars.win, 3, 1L << 1, key_release, &vars);
 	mlx_hook(vars.win, 17, 0L, close_window, &vars);
