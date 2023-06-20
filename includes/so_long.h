@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/15 15:14:12 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/20 16:42:36 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 typedef struct s_arg		t_arg;
 typedef struct s_data		t_data;
 typedef struct s_datamlx	t_datamlx;
+typedef struct s_vars		t_vars;
 
 struct s_arg
 {
@@ -49,12 +50,32 @@ struct	s_datamlx {
 	int		endian;
 };
 
-# define WALL '1'
-# define FLOOR '0'
-# define PLAYER 'P'
-# define COLLECTIBLE 'C'
-# define EXIT 'E'
-# define FOOT_PRINT '7'
+struct	s_vars {
+	void	*mlx;
+	void	*win;
+};
+
+enum e_map_ellement{
+	WALL = '1',
+	FLOOR = '0',
+	PLAYER = 'P',
+	COLLECTIBLE = 'C',
+	EXIT ='E',
+	FOOT_PRINT = '7'
+
+};
+
+enum e_key_code{
+	W = 119,
+	A = 97,
+	S = 115,
+	D = 100,
+	UP = 65362,
+	LEFT = 65361,
+	DOWN = 65364,
+	RIGHT = 65363,
+	ESC = 65307
+};
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);
 void	ft_strscpy(t_data *d);
