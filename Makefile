@@ -80,4 +80,4 @@ re: fclean
 fcleanMLX: fclean
 	${RM} -r ${MLX_PATH}
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re fcleanMLX
