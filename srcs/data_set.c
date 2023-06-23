@@ -6,11 +6,26 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:47:46 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/01 13:27:12 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:12:16 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+void	sprite_init(t_data *d)
+{
+	d->sprite->size = 32;
+	d->sprite->wall = mlx_xpm_file_to_image(d->mlx.mlx,
+			"./texture/WALL.xpm", &(d->sprite->size), &(d->sprite->size));
+	d->sprite->floor = mlx_xpm_file_to_image(d->mlx.mlx,
+			"./texture/FLOOR.xpm", &(d->sprite->size), &(d->sprite->size));
+	d->sprite->player = mlx_xpm_file_to_image(d->mlx.mlx,
+			"./texture/PLAYER.xpm", &(d->sprite->size), &(d->sprite->size));
+	d->sprite->collectible = mlx_xpm_file_to_image(d->mlx.mlx,
+			"./texture/COLLECTIBLE.xpm", &(d->sprite->size), &(d->sprite->size));
+	d->sprite->exit = mlx_xpm_file_to_image(d->mlx.mlx,
+			"./texture/EXIT.xpm", &(d->sprite->size), &(d->sprite->size));
+}
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d)
 {
@@ -24,6 +39,8 @@ void	data_init(int argc, char **argv, t_arg *a, t_data *d)
 	d->colectible_nb = 0;
 	d->player_pos[0] = 0;
 	d->player_pos[1] = 0;
+	d->mouvement_count = 0;
+	sprite_init(d);
 }
 
 void	ft_strscpy(t_data *d)

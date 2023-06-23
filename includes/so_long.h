@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/20 16:42:36 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/23 19:03:19 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 typedef struct s_arg		t_arg;
 typedef struct s_data		t_data;
 typedef struct s_datamlx	t_datamlx;
-typedef struct s_vars		t_vars;
+typedef struct s_sprite		t_sprite;
 
 struct s_arg
 {
@@ -30,29 +30,33 @@ struct s_arg
 	char	**v;
 };
 
-struct s_data
-{
-	int		width;
-	int		height;
-	int		colectible_nb;
-	int		player_pos[2];
-	int		map_fd;
-	char	*map_name;
-	char	**map;
-	char	**map_cpy;
-};
-
 struct	s_datamlx {
-	void	*img;
-	char	*addr;
-	int		bits_per_pixel;
-	int		line_length;
-	int		endian;
-};
-
-struct	s_vars {
 	void	*mlx;
 	void	*win;
+};
+
+struct s_data
+{
+	int			width;
+	int			height;
+	int			colectible_nb;
+	int			player_pos[2];
+	int			map_fd;
+	int			mouvement_count;
+	char		*map_name;
+	char		**map;
+	char		**map_cpy;
+	t_datamlx	mlx;
+	t_sprite	*sprite;
+};
+
+struct	s_sprite {
+	void	*wall;
+	void	*floor;
+	void	*player;
+	void	*collectible;
+	void	*exit;
+	int		size;
 };
 
 enum e_map_ellement{
