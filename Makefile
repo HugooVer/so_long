@@ -11,6 +11,8 @@ SRCS += main.c
 SRCS += data_set.c
 SRCS += map_check.c
 SRCS += error_management.c
+SRCS += input_management.c
+SRCS += mlx_put.c
 
 SRCS_PATH = srcs/
 
