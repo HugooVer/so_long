@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:21:35 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/24 18:20:07 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/24 18:29:07 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,16 @@ void	put_map(t_data *d)
 	{
 		while (jdx < d->width + 1)
 		{
-			if (d->map[idx][jdx] == (char)WALL)
+			printf("d->map[idx == %i][jdx == %i] == %c\n", idx, jdx, d->map[idx][jdx]);
+			if (d->map[idx][jdx] == WALL)
 				put_sprite(d, d->sprite->wall, jdx, idx);
-			if (d->map[idx][jdx] == (char)FLOOR)
+			if (d->map[idx][jdx] == FLOOR)
 				put_sprite(d, d->sprite->floor, jdx, idx);
-			if (d->map[idx][jdx] == (char)PLAYER)
+			if (d->map[idx][jdx] == PLAYER)
 				put_sprite(d, d->sprite->player, jdx, idx);
-			if (d->map[idx][jdx] == (char)COLLECTIBLE)
+			if (d->map[idx][jdx] == COLLECTIBLE)
 				put_sprite(d, d->sprite->collectible, jdx, idx);
-			if (d->map[idx][jdx] == (char)EXIT)
+			if (d->map[idx][jdx] == EXIT)
 				put_sprite(d, d->sprite->exit, jdx, idx);
 			++jdx;
 		}
