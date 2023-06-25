@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:20:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/24 18:22:12 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 13:39:41 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,10 @@ int	main(int argc, char **argv)
 	d.mlx.win = mlx_new_window(d.mlx.mlx,
 			(spr->size * (d.width + 1)),
 			(spr->size * (d.height)), "so_long");
-	free(d.map_name);
-	ft_freestrs(d.map);
-	ft_freestrs(d.map_cpy);
 	put_map(&d);
-	mlx_hook(d.mlx.win, 2, 1L << 0, key_press, &d.mlx);
-	mlx_hook(d.mlx.win, 3, 1L << 1, key_release, &d.mlx);
-	mlx_hook(d.mlx.win, 17, 0L, close_window, &d.mlx);
+	mlx_hook(d.mlx.win, 2, 1L << 0, key_press, &d);
+	mlx_hook(d.mlx.win, 3, 1L << 1, key_release, &d);
+	mlx_hook(d.mlx.win, 17, 0L, close_window, &d);
 	mlx_loop(d.mlx.mlx);
 	exit(EXIT_SUCCESS);
 }

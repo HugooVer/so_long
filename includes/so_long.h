@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/24 18:18:54 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 13:48:45 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,13 +91,17 @@ void	map_check(t_arg *a, t_data *d);
 
 void	error_free(t_data *d);
 void	error_no_free(void);
-void	ft_freestrs(char **ret);
 
-int		key_press(int keycode, t_datamlx *mlx);
-int		key_release(int keycode, t_datamlx *mlx);
-int		close_window(t_datamlx *mlx);
+int		key_press(int keycode, t_data *d);
+int		key_release(int keycode, t_data *d);
+int		close_window(t_data *d);
 
 void	put_sprite(t_data *d, void *sprite, int x, int y);
 void	put_map(t_data *d);
+
+void	ft_freestrs(char **ret);
+void	free_image(t_data *d);
+void	ft_free(t_data *d);
+void	kill_mlx(t_data *d);
 
 #endif

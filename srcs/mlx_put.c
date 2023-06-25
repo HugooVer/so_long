@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:21:35 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/24 18:29:07 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 11:58:04 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ void	put_map(t_data *d)
 	{
 		while (jdx < d->width + 1)
 		{
-			printf("d->map[idx == %i][jdx == %i] == %c\n", idx, jdx, d->map[idx][jdx]);
 			if (d->map[idx][jdx] == WALL)
 				put_sprite(d, d->sprite->wall, jdx, idx);
 			if (d->map[idx][jdx] == FLOOR)
