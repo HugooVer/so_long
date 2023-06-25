@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 12:40:25 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 13:48:20 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:57:52 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	free_image(t_data *d)
 
 void	ft_free(t_data *d)
 {
-	free(d->map_name);
 	ft_freestrs(d->map_cpy);
 	ft_freestrs(d->map);
 	free(d->mlx.mlx);

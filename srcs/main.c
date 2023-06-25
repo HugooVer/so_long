@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:20:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 13:39:41 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:16:26 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	main(int argc, char **argv)
 			(spr->size * (d.width + 1)),
 			(spr->size * (d.height)), "so_long");
 	put_map(&d);
+	printf("=====%i=%i=====\n", d.player_pos[0], d.player_pos[1]);
 	mlx_hook(d.mlx.win, 2, 1L << 0, key_press, &d);
 	mlx_hook(d.mlx.win, 3, 1L << 1, key_release, &d);
 	mlx_hook(d.mlx.win, 17, 0L, close_window, &d);

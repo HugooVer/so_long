@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:19:29 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 13:48:30 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:50:12 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,25 @@ int	key_release(int keycode, t_data *d)
 {
 	(void) d;
 	if (keycode == UP || keycode == W)
+	{
+		move_up(d);
 		printf("UP\n");
+	}
 	else if (keycode == LEFT || keycode == A)
+	{
+		move_left(d);
 		printf("LEFT\n");
+	}
 	else if (keycode == DOWN || keycode == S)
+	{
+		move_down(d);
 		printf("DOWN\n");
+	}
 	else if (keycode == RIGHT || keycode == D)
+	{
+		move_right(d);
 		printf("RIGHT\n");
+	}
 	return (0);
 }
 

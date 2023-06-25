@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 13:48:45 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 17:49:08 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ struct s_data
 	int			width;
 	int			height;
 	int			colectible_nb;
+	int			colectible_count;
 	int			player_pos[2];
 	int			map_fd;
 	int			mouvement_count;
@@ -88,6 +89,7 @@ void	is_ber_extention(t_arg *a, t_data *d);
 void	map_count_lines(t_data *d);
 void	map_conversion(t_data *d);
 void	map_check(t_arg *a, t_data *d);
+void	look_for_player(t_data *d);
 
 void	error_free(t_data *d);
 void	error_no_free(void);
@@ -103,5 +105,10 @@ void	ft_freestrs(char **ret);
 void	free_image(t_data *d);
 void	ft_free(t_data *d);
 void	kill_mlx(t_data *d);
+
+void	move_up(t_data *d);
+void	move_right(t_data *d);
+void	move_down(t_data *d);
+void	move_left(t_data *d);
 
 #endif

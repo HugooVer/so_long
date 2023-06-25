@@ -14,6 +14,7 @@ SRCS += error_management.c
 SRCS += input_management.c
 SRCS += mlx_put.c
 SRCS += ft_free.c
+SRCS += movement.c
 
 SRCS_PATH = srcs/
 
