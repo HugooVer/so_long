@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/14 14:30:19 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/06/25 16:53:59 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	is_ber_extention(t_arg *a, t_data *d)
 		error_no_free();
 	if ((ft_strnstr(a->v[1] + ft_strlen(a->v[1]) - 4, ".ber", 4)) == NULL)
 		error_no_free();
-	d->map_name = ft_strnjoin("map/", a->v[1], ft_strlen(a->v[1]));
+	d->map_name = a->v[1];
 }
 
 void	read_buf(t_data *d, ssize_t *size, char *buf)
