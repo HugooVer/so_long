@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 11:28:46 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:57:03 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,20 @@
 void	is_ber_extention(t_arg *a, t_data *d)
 {
 	if (a->c < 2 || a->c > 2)
+	{
+		free_base(d);
 		error_no_free();
-	if (ft_strlen(a->v[1]) <= 4)
+	}
+	if (ft_strlen(a->v[1]) <= 8) // 8 ?? if the map folder name can be change 
+	{
+		free_base(d);
 		error_no_free();
+	}
 	if ((ft_strnstr(a->v[1] + ft_strlen(a->v[1]) - 4, ".ber", 4)) == NULL)
+	{
+		free_base(d);
 		error_no_free();
+	}
 	d->map_name = a->v[1];
 }
 
@@ -64,7 +73,10 @@ void	map_conversion(t_data *d)
 
 	d->map_fd = open(d->map_name, O_RDONLY);
 	if (d->map_fd == -1)
+	{
+		free_base(d);
 		error_no_free();
+	}
 	d->map = ft_calloc(d->height + 1, sizeof(char *));
 	if (d->map == NULL)
 		error_free(d);
@@ -104,14 +116,14 @@ void	map_is_closed(t_data *d)
 	while (d->map[0][idx] != '\0')
 	{
 		if (d->map[0][idx] != WALL || d->map[d->height - 1][idx] != WALL)
-			error_free(d);
+			error_free_no_cpy(d);
 		++idx;
 	}
 	idx = 0;
 	while (d->map[idx] != NULL)
 	{
 		if (d->map[idx][0] != WALL || d->map[idx][d->width] != WALL)
-			error_free(d);
+			error_free_no_cpy(d);
 		++idx;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 12:40:25 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 16:57:52 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:03:08 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,13 @@ void	free_image(t_data *d)
 	mlx_destroy_image(d->mlx.mlx, d->sprite->player);
 	mlx_destroy_image(d->mlx.mlx, d->sprite->collectible);
 	mlx_destroy_image(d->mlx.mlx, d->sprite->exit);
+}
+
+void	free_base(t_data *d)
+{
+	free_image(d);
+	mlx_destroy_display(d->mlx.mlx);
+	free(d->mlx.mlx);
 }
 
 void	ft_free(t_data *d)

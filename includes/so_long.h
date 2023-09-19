@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/06/25 17:49:08 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 16:53:20 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,7 @@ void	map_check(t_arg *a, t_data *d);
 void	look_for_player(t_data *d);
 
 void	error_free(t_data *d);
+void	error_free_no_cpy(t_data *d);
 void	error_no_free(void);
 
 int		key_press(int keycode, t_data *d);
@@ -104,6 +105,7 @@ void	put_map(t_data *d);
 void	ft_freestrs(char **ret);
 void	free_image(t_data *d);
 void	ft_free(t_data *d);
+void	free_base(t_data *d);
 void	kill_mlx(t_data *d);
 
 void	move_up(t_data *d);
