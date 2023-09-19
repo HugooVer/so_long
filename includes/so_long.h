@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 19:13:31 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:18:51 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ enum e_map_ellement{
 	COLLECTIBLE = 'C',
 	EXIT ='E',
 	FOOT_PRINT = '7'
-
 };
 
 enum e_key_code{
