@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 16:53:20 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:13:31 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,8 @@ void	is_ber_extention(t_arg *a, t_data *d);
 void	map_count_lines(t_data *d);
 void	map_conversion(t_data *d);
 void	map_check(t_arg *a, t_data *d);
+
+int		backtrack(int x, int y, char **tab, char looking);
 void	look_for_player(t_data *d);
 
 void	error_free(t_data *d);
@@ -112,5 +114,10 @@ void	move_up(t_data *d);
 void	move_right(t_data *d);
 void	move_down(t_data *d);
 void	move_left(t_data *d);
+
+void	map_is_rectangular(t_data *d);
+void	map_is_closed(t_data *d);
+void	map_well_filled(t_data *d);
+void	ellements_count(t_data *d, int *e, int *p, int *i);
 
 #endif

@@ -15,6 +15,8 @@ SRCS += input_management.c
 SRCS += mlx_put.c
 SRCS += ft_free.c
 SRCS += movement.c
+SRCS += back_tracking.c
+SRCS += map_aspect.c
 
 SRCS_PATH = srcs/
 

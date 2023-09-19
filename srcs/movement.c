@@ -6,12 +6,19 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 17:25:07 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 11:27:30 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/19 19:12:49 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "so_long.h"
+
+void	win_action(t_data *d)
+{
+	put_map(d);
+	kill_mlx(d);
+	ft_printf("You win !!!\n");
+	exit(EXIT_SUCCESS);
+}
 
 void	move_up(t_data *d)
 {
@@ -19,9 +26,7 @@ void	move_up(t_data *d)
 	{
 		if (d->map[d->player_pos[0] - 1][d->player_pos[1]] == COLLECTIBLE)
 		{
-			// printf("B = %i\n", d->colectible_count);
 			++d->colectible_count;
-			// printf("A = %i\n", d->colectible_count);
 			d->map[d->player_pos[0] - 1][d->player_pos[1]] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			--d->player_pos[0];
@@ -31,10 +36,7 @@ void	move_up(t_data *d)
 		{
 			d->map[d->player_pos[0] - 1][d->player_pos[1]] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
-			put_map(d);
-			kill_mlx(d);
-			ft_printf("You win !!!\n");
-			exit(EXIT_SUCCESS);
+			win_action(d);
 		}
 		else if (d->map[d->player_pos[0] - 1][d->player_pos[1]] != EXIT)
 		{
@@ -42,7 +44,6 @@ void	move_up(t_data *d)
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			--d->player_pos[0];
 		}
-		// printf ("player poss = %i %i\n", d->player_pos[0], d->player_pos[1]);
 		put_map(d);
 	}
 }
@@ -53,9 +54,7 @@ void	move_right(t_data *d)
 	{
 		if (d->map[d->player_pos[0]][d->player_pos[1] + 1] == COLLECTIBLE)
 		{
-			// printf("B = %i\n", d->colectible_count);
 			++d->colectible_count;
-			// printf("A = %i\n", d->colectible_count);
 			d->map[d->player_pos[0]][d->player_pos[1] + 1] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			++d->player_pos[1];
@@ -65,10 +64,7 @@ void	move_right(t_data *d)
 		{
 			d->map[d->player_pos[0]][d->player_pos[1] + 1] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
-			put_map(d);
-			kill_mlx(d);
-			ft_printf("You win !!!\n");
-			exit(EXIT_SUCCESS);
+			win_action(d);
 		}
 		else if (d->map[d->player_pos[0]][d->player_pos[1] + 1] != EXIT)
 		{
@@ -76,7 +72,6 @@ void	move_right(t_data *d)
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			++d->player_pos[1];
 		}
-		// printf ("player poss = %i %i\n", d->player_pos[0], d->player_pos[1]);
 		put_map(d);
 	}
 }
@@ -87,9 +82,7 @@ void	move_down(t_data *d)
 	{
 		if (d->map[d->player_pos[0] + 1][d->player_pos[1]] == COLLECTIBLE)
 		{
-			// printf("B = %i\n", d->colectible_count);
 			++d->colectible_count;
-			// printf("A = %i\n", d->colectible_count);
 			d->map[d->player_pos[0] + 1][d->player_pos[1]] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			++d->player_pos[0];
@@ -99,10 +92,7 @@ void	move_down(t_data *d)
 		{
 			d->map[d->player_pos[0] + 1][d->player_pos[1]] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
-			put_map(d);
-			kill_mlx(d);
-			ft_printf("You win !!!\n");
-			exit(EXIT_SUCCESS);
+			win_action(d);
 		}
 		else if (d->map[d->player_pos[0] + 1][d->player_pos[1]] != EXIT)
 		{
@@ -110,7 +100,6 @@ void	move_down(t_data *d)
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			++d->player_pos[0];
 		}
-		// printf ("player poss = %i %i\n", d->player_pos[0], d->player_pos[1]);
 		put_map(d);
 	}
 }
@@ -121,9 +110,7 @@ void	move_left(t_data *d)
 	{
 		if (d->map[d->player_pos[0]][d->player_pos[1] - 1] == COLLECTIBLE)
 		{
-			// printf("B = %i\n", d->colectible_count);
 			++d->colectible_count;
-			// printf("A = %i\n", d->colectible_count);
 			d->map[d->player_pos[0]][d->player_pos[1] - 1] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			--d->player_pos[1];
@@ -133,10 +120,7 @@ void	move_left(t_data *d)
 		{
 			d->map[d->player_pos[0]][d->player_pos[1] - 1] = PLAYER;
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
-			put_map(d);
-			kill_mlx(d);
-			ft_printf("You win !!!\n");
-			exit(EXIT_SUCCESS);
+			win_action(d);
 		}
 		else if (d->map[d->player_pos[0]][d->player_pos[1] - 1] != EXIT)
 		{
@@ -144,7 +128,6 @@ void	move_left(t_data *d)
 			d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 			--d->player_pos[1];
 		}
-		// printf ("player poss = %i %i\n", d->player_pos[0], d->player_pos[1]);
 		put_map(d);
 	}
 }
