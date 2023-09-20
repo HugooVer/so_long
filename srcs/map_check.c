@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 19:13:06 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 18:33:08 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,17 +102,18 @@ void	map_check(t_arg *a, t_data *d)
 		ft_strscpy(d);
 		look_for_player(d);
 		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
-				EXIT) == 1)
+				d) == 1)
 			printf("Exit ok\n");
 		else
 			error_free(d);
 		ft_freestrs(d->map_cpy);
 		ft_strscpy(d);
-		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
-				COLLECTIBLE) == d->colectible_nb)
+		if (d->colectible_back == d->colectible_nb)
 			printf("Colectible ok\n");
 		else
+		{
 			error_free(d);
+		}
 	}
 	else
 		error_no_free();

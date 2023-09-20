@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:09:18 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 19:13:19 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 13:58:15 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	map_well_filled(t_data *d)
 		++i[0];
 		i[1] = 0;
 	}
-	if (p > 1 || e > 1 || d->colectible_nb < 1)
+	if (p != 1 || e != 1 || d->colectible_nb < 1)
 		error_free(d);
 }
 
