@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 17:23:58 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:50:28 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,6 +96,7 @@ void	look_for_player(t_data *d);
 void	error_free(t_data *d);
 void	error_free_no_cpy(t_data *d);
 void	error_no_free(void);
+void	print_map(char **map);
 
 int		key_press(int keycode, t_data *d);
 int		key_release(int keycode, t_data *d);
@@ -116,7 +117,11 @@ void	move_down(t_data *d);
 void	move_left(t_data *d);
 
 void	map_is_rectangular(t_data *d);
-void	map_is_closed(t_data *d);
+void	map_is_closed(t_
+enum e_screen{
+	MAX_WIDTH = 1920,
+	MAX_HEIGHT = 1080
+};data *d);
 void	map_well_filled(t_data *d);
 void	ellements_count(t_data *d, int *e, int *p, int *i);
 
