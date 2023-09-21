@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:20:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 19:39:09 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:13:38 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int argc, char **argv)
 	data_init(argc, argv, &a, &d);
 	map_check(&a, &d);
 	if (spr->size * (d.width + 1) > MAX_WIDTH
-		|| spr->size * (d.height) > MAX_HEIGHT)
+		|| spr->size * (d.height) > MAX_HEIGHT - spr->size)
 		error_free(&d);
 	d.mlx.win = mlx_new_window(d.mlx.mlx,
 			(spr->size * (d.width + 1)),

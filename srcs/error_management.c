@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/28 12:36:36 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 19:49:32 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:16:29 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ void	error_no_free(void)
 
 void	print_map(char **map)
 {
-	int idx;
+	int	idx;
 
 	idx = 0;
 	while (map[idx] != NULL)

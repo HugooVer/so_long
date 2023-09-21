@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:09:18 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 19:44:18 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/21 15:22:05 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,26 +26,35 @@ void	map_is_rectangular(t_data *d)
 	d->width = ft_strlen(d->map[idx - 1]) - 1;
 }
 
+void	top_botom(t_data *d, int idx)
+{
+	int	jdx;
+
+	jdx = 0;
+	while (d->map[idx][jdx] != '\0')
+	{
+		if (d->map[idx][jdx] != WALL)
+			error_free_no_cpy(d);
+		++jdx;
+	}
+}
+
 void	map_is_closed(t_data *d)
 {
 	int	idx;
 
 	idx = 0;
-	while (d->map[0][idx] != '\0')
-	{
-		printf("Test\n");
-		printf("%c ==== %c\n", d->map[0][idx], d->map[d->height - 1][idx]);
-		if (d->map[0][idx] != WALL || d->map[d->height - 1][idx] != WALL)
-			error_free_no_cpy(d);
-		++idx;
-	}
-	idx = 0;
 	while (d->map[idx] != NULL)
 	{
+		if (idx == 0)
+		{
+			top_botom(d, idx);
+		}
 		if (d->map[idx][0] != WALL || d->map[idx][d->width] != WALL)
 			error_free_no_cpy(d);
 		++idx;
 	}
+	top_botom(d, idx -1);
 }
 
 void	map_well_filled(t_data *d)

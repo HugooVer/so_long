@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:47:46 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/19 11:57:37 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:41:01 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	data_init(int argc, char **argv, t_arg *a, t_data *d)
 	d->width = 0;
 	d->colectible_nb = 0;
 	d->colectible_count = 0;
+	d->colectible_back = 0;
 	d->player_pos[0] = 0;
 	d->player_pos[1] = 0;
 	d->mouvement_count = 0;
