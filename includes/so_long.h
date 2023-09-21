@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 19:58:27 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/21 13:07:19 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,11 @@ enum e_key_code{
 	DOWN = 65364,
 	RIGHT = 65363,
 	ESC = 65307
+};
+
+enum e_screen{
+	MAX_WIDTH = 1920,
+	MAX_HEIGHT = 1080
 };
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);

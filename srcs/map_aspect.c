@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/19 19:09:18 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 13:58:15 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:44:18 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	map_is_closed(t_data *d)
 	idx = 0;
 	while (d->map[0][idx] != '\0')
 	{
+		printf("Test\n");
+		printf("%c ==== %c\n", d->map[0][idx], d->map[d->height - 1][idx]);
 		if (d->map[0][idx] != WALL || d->map[d->height - 1][idx] != WALL)
 			error_free_no_cpy(d);
 		++idx;

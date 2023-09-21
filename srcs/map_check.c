@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:53:22 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/20 18:33:08 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/20 19:45:39 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,9 +111,7 @@ void	map_check(t_arg *a, t_data *d)
 		if (d->colectible_back == d->colectible_nb)
 			printf("Colectible ok\n");
 		else
-		{
 			error_free(d);
-		}
 	}
 	else
 		error_no_free();
