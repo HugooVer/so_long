@@ -29,7 +29,6 @@ void	put_map(t_data *d)
 	{
 		while (d->map[idx][jdx] != '\0')
 		{
-			printf("%c", d->map[idx][jdx]);
 			if (d->map[idx][jdx] == WALL)
 				put_sprite(d, d->sprite->wall, jdx, idx);
 			if (d->map[idx][jdx] == FLOOR)

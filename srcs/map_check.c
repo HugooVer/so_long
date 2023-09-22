@@ -15,15 +15,9 @@
 void	is_ber_extention(t_arg *a, t_data *d)
 {
 	if (a->c < 2 || a->c > 2)
-	{
-		free_base(d);
-		error_no_free();
-	}
+		ft_error(d, NO_MUTCH_MAP);
 	if ((ft_strnstr(a->v[1] + ft_strlen(a->v[1]) - 4, ".ber", 4)) == NULL)
-	{
-		free_base(d);
-		error_no_free();
-	}
+		ft_error(d, BER);
 	d->map_name = a->v[1];
 }
 
@@ -31,7 +25,7 @@ void	read_buf(t_data *d, ssize_t *size, char *buf)
 {
 	*size = read(d->map_fd, buf, BUFFER_SIZE);
 	if (*size == -1)
-		error_free(d);
+		ft_error(d, SYSTEM_FREE);
 	if (*size != 0)
 		buf[*size] = '\0';
 }
@@ -68,13 +62,10 @@ void	map_conversion(t_data *d)
 
 	d->map_fd = open(d->map_name, O_RDONLY);
 	if (d->map_fd == -1)
-	{
-		free_base(d);
-		error_no_free();
-	}
+		ft_error(d, OOO);
 	d->map = ft_calloc(d->height + 1, sizeof(char *));
 	if (d->map == NULL)
-		error_free(d);
+		ft_error(d, SYSTEM_FREE);
 	line = get_next_line(d->map_fd);
 	idx = 0;
 	while (line != NULL)
@@ -101,18 +92,12 @@ void	map_check(t_arg *a, t_data *d)
 		map_well_filled(d);
 		ft_strscpy(d);
 		look_for_player(d);
-		if (backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
-				d) == 1)
-			printf("Exit ok\n");
-		else
-			error_free(d);
-		ft_freestrs(d->map_cpy);
-		ft_strscpy(d);
-		if (d->colectible_back == d->colectible_nb)
-			printf("Colectible ok\n");
-		else
-			error_free(d);
+		if (!(backtrack(d->player_pos[0], d->player_pos[1], d->map_cpy,
+					d) == 1))
+			ft_error(d, EEXIT);
+		if (d->colectible_back != d->colectible_nb)
+			ft_error(d, ECOLLECTIBLE);
 	}
 	else
-		error_no_free();
+		ft_error(d, MAP);
 }

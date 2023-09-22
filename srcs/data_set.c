@@ -28,7 +28,7 @@ void	sprite_init(t_data *d)
 	if (d->sprite->wall == NULL || d->sprite->floor == NULL
 		|| d->sprite->player == NULL || d->sprite->collectible == NULL
 		|| d->sprite->exit == NULL)
-		error_free(d);
+		ft_error(d, TEXTURE);
 }
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d)
@@ -55,6 +55,8 @@ void	ft_strscpy(t_data *d)
 
 	i = 0;
 	d->map_cpy = ft_calloc(d->height + 1, sizeof(char *));
+	if (d->map_cpy == NULL)
+		ft_error(d, SYSTEM_FREE);
 	while (d->map[i] != NULL)
 	{
 		d->map_cpy[i] = ft_strdup(d->map[i]);

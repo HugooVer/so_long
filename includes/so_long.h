@@ -87,6 +87,23 @@ enum e_screen{
 	MAX_HEIGHT = 1080
 };
 
+enum e_error{
+	TEXTURE,
+	NO_MUTCH_MAP,
+	BER,
+	OOO,
+	SYSTEM_FREE,
+	SYSTEM_NO_FREE,
+	RECT,
+	CLOSE,
+	BAD_CHAR,
+	NB_ELLEMENT,
+	EEXIT,
+	ECOLLECTIBLE,
+	MAP,
+	MAP_BIG
+};
+
 void	data_init(int argc, char **argv, t_arg *a, t_data *d);
 void	ft_strscpy(t_data *d);
 
@@ -101,6 +118,7 @@ void	look_for_player(t_data *d);
 void	error_free(t_data *d);
 void	error_free_no_cpy(t_data *d);
 void	error_no_free(void);
+void	ft_error(t_data *d, int code);
 void	print_map(char **map);
 
 int		key_press(int keycode, t_data *d);
