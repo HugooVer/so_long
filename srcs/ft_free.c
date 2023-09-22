@@ -39,11 +39,16 @@ void	kill_mlx(t_data *d)
 
 void	free_image(t_data *d)
 {
-	mlx_destroy_image(d->mlx.mlx, d->sprite->wall);
-	mlx_destroy_image(d->mlx.mlx, d->sprite->floor);
-	mlx_destroy_image(d->mlx.mlx, d->sprite->player);
-	mlx_destroy_image(d->mlx.mlx, d->sprite->collectible);
-	mlx_destroy_image(d->mlx.mlx, d->sprite->exit);
+	if (d->sprite->wall != NULL)
+		mlx_destroy_image(d->mlx.mlx, d->sprite->wall);
+	if (d->sprite->floor != NULL)
+		mlx_destroy_image(d->mlx.mlx, d->sprite->floor);
+	if (d->sprite->player != NULL)
+		mlx_destroy_image(d->mlx.mlx, d->sprite->player);
+	if (d->sprite->collectible != NULL)
+		mlx_destroy_image(d->mlx.mlx, d->sprite->collectible);
+	if (d->sprite->exit != NULL)
+		mlx_destroy_image(d->mlx.mlx, d->sprite->exit);
 }
 
 void	free_base(t_data *d)

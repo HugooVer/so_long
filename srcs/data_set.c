@@ -25,6 +25,10 @@ void	sprite_init(t_data *d)
 			"./texture/COLLECTIBLE.xpm", &d->sprite->size, &d->sprite->size);
 	d->sprite->exit = mlx_xpm_file_to_image(d->mlx.mlx,
 			"./texture/EXIT.xpm", &d->sprite->size, &d->sprite->size);
+	if (d->sprite->wall == NULL || d->sprite->floor == NULL
+		|| d->sprite->player == NULL || d->sprite->collectible == NULL
+		|| d->sprite->exit == NULL)
+		error_free(d);
 }
 
 void	data_init(int argc, char **argv, t_arg *a, t_data *d)
