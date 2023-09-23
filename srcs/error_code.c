@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:01:46 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/22 19:12:03 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/23 15:02:48 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	ft_error1(t_data *d, int code)
 {
-	ft_printf("Error\n");
 	if (code == TEXTURE)
 	{
 		ft_printf("Texture related\n");
@@ -59,12 +58,12 @@ void	ft_error2(t_data *d, int code)
 	}
 	if (code == CLOSE)
 	{
-		ft_printf("Map not closed");
+		ft_printf("Map not closed\n");
 		error_free_no_cpy(d);
 	}
 	if (code == BAD_CHAR)
 	{
-		ft_printf("character not valid");
+		ft_printf("character not valid\n");
 		error_free(d);
 	}
 }
@@ -73,33 +72,34 @@ void	ft_error3(t_data *d, int code)
 {
 	if (code == NB_ELLEMENT)
 	{
-		ft_printf("Element number not as exepted");
+		ft_printf("Element number not as exepted\n");
 		error_free(d);
 	}
 	if (code == EEXIT)
 	{
-		ft_printf("Exit cant be reached");
+		ft_printf("Exit cant be reached\n");
 		error_free(d);
 	}
 	if (code == ECOLLECTIBLE)
 	{
-		ft_printf("collectible locked");
+		ft_printf("collectible locked\n");
 		error_free(d);
 	}
 	if (code == MAP)
 	{
-		ft_printf("no map");
+		ft_printf("no map\n");
 		exit(EXIT_FAILURE);
 	}
 	if (code == MAP_BIG)
 	{
-		ft_printf("Map to big");
+		ft_printf("Map to big\n");
 		error_free(d);
 	}
 }
 
 void	ft_error(t_data *d, int code)
 {
+		ft_printf("Error\n");
 	ft_error1(d, code);
 	ft_error2(d, code);
 	ft_error3(d, code);
