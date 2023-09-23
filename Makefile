@@ -27,7 +27,7 @@ MLX_PATH = minilibx-linux/
 MINILIBX += ${MLX_PATH}/libmlx_Linux.a
 MINILIBX += ${MLX_PATH}/libmlx.a
 MINILIBX_TAR += minilibx-linux.tgz
-MINILIBX_LINK += https://cdn.intra.42.fr/document/document/15086/${MINILIBX_TAR}
+MINILIBX_LINK += https://cdn.intra.42.fr/document/document/20897/${MINILIBX_TAR}
 
 INCLUDE = includes/
 LIB_INCUDE = -I ${LIBFT_PATH}/includes
