@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/24 17:21:35 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/21 15:10:33 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:45:41 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,11 @@ void	put_map(t_data *d)
 		jdx = 0;
 		++idx;
 	}
+	ft_printf("\rMouvment : %i", d->mouvement_count);
+}
+
+void	move_player(t_data *d, int x, int y)
+{
+	d->map[x][y] = PLAYER;
+	d->map[d->player_pos[0]][d->player_pos[1]] = FLOOR;
 }

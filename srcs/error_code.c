@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 19:01:46 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/23 15:02:48 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:57:21 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	ft_error3(t_data *d, int code)
 
 void	ft_error(t_data *d, int code)
 {
-		ft_printf("Error\n");
+	ft_printf("Error\n");
 	ft_error1(d, code);
 	ft_error2(d, code);
 	ft_error3(d, code);

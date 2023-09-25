@@ -6,7 +6,7 @@
 /*   By: hvercell <hvercell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 18:23:01 by hvercell          #+#    #+#             */
-/*   Updated: 2023/09/21 13:07:19 by hvercell         ###   ########.fr       */
+/*   Updated: 2023/09/25 16:39:49 by hvercell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ int		close_window(t_data *d);
 
 void	put_sprite(t_data *d, void *sprite, int x, int y);
 void	put_map(t_data *d);
+void	move_player(t_data *d, int x, int y);
 
 void	ft_freestrs(char **ret);
 void	free_image(t_data *d);
